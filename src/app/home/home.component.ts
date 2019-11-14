@@ -15,13 +15,12 @@ export class HomeComponent implements OnInit {
   dates: string[] = [ '2019-11-14', '2019-11-13', '2019-11-12'];
   
   ngOnInit() {
-    this.getPhotos()
+    this.getPhotos();
   }
   
   getPhotos(): void {
-    this.dates.forEach(photoDate => {
-      this.photosService.getPhoto(photoDate)
-      .subscribe(photo => this.photos.push(photo));
-    })
+      this.photosService.getPhotos(this.dates)
+      .subscribe(photos => this.photos =  photos);
   }
+
 }

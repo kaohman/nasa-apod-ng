@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
+import { Observable, of, forkJoin } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { Photo } from './Photo'
 import { environment } from 'src/environments/environment';
@@ -15,11 +15,17 @@ export class PhotosService {
     private http: HttpClient
   ) { }
 
-  getPhoto(photoDate: string): Observable<Photo> {
-    return this.http.get<Photo>(`${this.nasaUrl}&date=${photoDate}`)
-      .pipe(
-        catchError(this.handleError<Photo>('getPhoto', {} as Photo))
-      )
+  getPhotos(photoDates: string[]): Observable<Photo[]> {
+    let observableBatch: Observable<Photo>[] = [];
+
+    photoDates.forEach(photoDate => {
+      observableBatch.push(this.http.get<Photo>(`${this.nasaUrl}&date=${photoDate}`)
+        .pipe(
+          catchError(this.handleError<Photo>('getPhoto', {} as Photo))
+        ))
+    })
+
+    return forkJoin(observableBatch);
   }
 
   private handleError<T>(operation = 'operation', result?: T) {
