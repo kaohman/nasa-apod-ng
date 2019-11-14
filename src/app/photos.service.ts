@@ -28,6 +28,13 @@ export class PhotosService {
     return forkJoin(observableBatch);
   }
 
+  getPhoto(photoDate: string): Observable<Photo> {
+    return this.http.get<Photo>(`${this.nasaUrl}&date=${photoDate}`)
+      .pipe(
+        catchError(this.handleError<Photo>('getPhoto', {} as Photo))
+      );
+  }
+
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
       console.error(`${operation}: ${error}`);
