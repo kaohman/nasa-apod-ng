@@ -1,3 +1,14 @@
-<mat-card *ngFor="let photo of photos">
-  {{ photo }}
-</mat-card>
+<div class="card-container">
+  <mat-card class="photo-card" *ngFor="let photo of photos">
+      <mat-card-header class="card-header">
+        <mat-card-title>{{ photo.title }}</mat-card-title>
+        <mat-card-subtitle>{{ photo.date }}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <img mat-card-image src="{{ photo.url }}" alt="Photo of astronomy photo of the day" class="nasa-photo">
+        <div class="explanation-container">
+          <p class="explanation">{{ photo.explanation }}</p>
+        </div>
+      </mat-card-content>
+  </mat-card>
+</div>

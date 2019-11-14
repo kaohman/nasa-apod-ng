@@ -1,0 +1,36 @@
+.card-container {
+  padding: 10px;
+  background-color: black;
+  min-height: 1000px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 300px));
+  justify-content: center;
+  grid-gap: 10px;
+}
+
+.card-header {
+  height: 90px;
+  margin-bottom: 10px;
+}
+
+.photo-card {
+  height: 500px;
+}
+
+.explanation-container {
+  width: 250px;
+  height: 180px;
+  overflow: scroll;
+  padding: 10px;
+}
+
+.explanation {
+  margin: 0;
+  text-align: justify;
+}
+
+.nasa-photo {
+  display: block;
+  object-fit: cover;
+  height: 200px;
+}
