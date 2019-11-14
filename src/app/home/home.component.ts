@@ -11,8 +11,6 @@ export class HomeComponent implements OnInit {
   constructor(private photosService: PhotosService) {}
   
   photos: Photo[] = [];
-
-  dates: string[] = [ '2019-11-14', '2019-11-13', '2019-11-12'];
   
   ngOnInit() {
     this.getPhotosForMonth();
