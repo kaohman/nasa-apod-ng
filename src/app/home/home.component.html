@@ -1,5 +1,5 @@
 <div class="card-container">
-  <mat-card class="photo-card" *ngFor="let photo of photos">
+  <mat-card class="photo-card" *ngFor="let photo of photos" routerLink="/detail/{{photo.date}}" >
       <mat-card-header class="card-header">
         <mat-card-title>{{ photo.title }}</mat-card-title>
         <mat-card-subtitle>{{ photo.date }}</mat-card-subtitle>

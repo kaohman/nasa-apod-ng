@@ -8,9 +8,10 @@ import { Photo } from '../Photo';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  constructor(private photosService: PhotosService) {}
+  constructor(private photosService: PhotosService) { }
   
   photos: Photo[] = [];
+  selectedPhoto: Photo = {} as Photo;
   
   ngOnInit() {
     this.getPhotosForMonth();
@@ -32,7 +33,12 @@ export class HomeComponent implements OnInit {
   getPhotosForMonth(): void {
       const dates: string[] = this.getDates();
       this.photosService.getPhotos(dates)
-      .subscribe(photos => this.photos =  photos);
+        .subscribe(photos => this.photos =  photos);
+  }
+
+  showDetails(photo: Photo) {
+    this.selectedPhoto = photo;
+    console.log(photo);
   }
 
 }
