@@ -1,0 +1,13 @@
+<div class="photo-detail-container" *ngIf="photo; else showNoPhoto">
+  <img class="apod-img" src="{{ photo.url }}" alt="NASA astronomy photo of the day">
+  <div class="details-text">
+    <h2>{{ photo.title }}</h2>
+    <h3>{{ photo.date }}</h3>
+    <p>{{ photo.explanation }}</p>
+  </div>
+</div>
+
+<ng-template #showNoPhoto>
+  <p>...</p>
+</ng-template>
+
