@@ -8,12 +8,14 @@ import { HomeComponent } from './home/home.component';
 import { MatToolbarModule, MatCardModule } from '@angular/material';
 import { NavbarComponent } from './navbar/navbar.component'
 import { HttpClientModule } from '@angular/common/http';
+import { PhotoDetailsComponent } from './photo-details/photo-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    NavbarComponent
+    NavbarComponent,
+    PhotoDetailsComponent
   ],
   imports: [
     HttpClientModule,
