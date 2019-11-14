@@ -7,4 +7,7 @@ export class Photo {
   media_type: MediaType;
   title: string;
   url: string;
+  hdurl: string;
+  service_version: string;
+  copyright: string;
 }

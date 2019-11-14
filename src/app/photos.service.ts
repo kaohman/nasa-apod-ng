@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
-import { catchError, map, tap } from 'rxjs/operators';
+import { catchError } from 'rxjs/operators';
 import { Photo } from './Photo'
 import { environment } from 'src/environments/environment';
 
@@ -15,11 +15,10 @@ export class PhotosService {
     private http: HttpClient
   ) { }
 
-  getPhotos(): Observable<Photo[]> {
-    return this.http.get<Photo[]>(this.nasaUrl)
+  getPhoto(photoDate: string): Observable<Photo> {
+    return this.http.get<Photo>(`${this.nasaUrl}&date=${photoDate}`)
       .pipe(
-        tap(() => console.log('fetched heroes')),
-        catchError(this.handleError<Photo[]>('getPhotos', []))
+        catchError(this.handleError<Photo>('getPhoto', {} as Photo))
       )
   }
 
