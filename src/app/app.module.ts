@@ -9,6 +9,8 @@ import { MatToolbarModule, MatCardModule } from '@angular/material';
 import { NavbarComponent } from './navbar/navbar.component'
 import { HttpClientModule } from '@angular/common/http';
 import { PhotoDetailsComponent } from './photo-details/photo-details.component';
+import { MatIconModule } from '@angular/material/icon';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,8 @@ import { PhotoDetailsComponent } from './photo-details/photo-details.component';
     BrowserAnimationsModule,
     MatToolbarModule,
     MatCardModule,
+    MatIconModule,
+    MatProgressSpinnerModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

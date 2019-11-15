@@ -16,12 +16,17 @@ export class PhotoDetailsComponent implements OnInit {
   
   photo: Photo;
   isLoading: boolean = true;
+  showDetails: boolean = false;
 
   ngOnInit() {
     const photoDate = this.route.snapshot.paramMap.get('id');
     this.photosService.getPhoto(photoDate)
       .subscribe(photo => this.photo = photo);
     this.isLoading = false;
+  }
+
+  toggleDetails() {
+    this.showDetails = !this.showDetails;
   }
 
 }

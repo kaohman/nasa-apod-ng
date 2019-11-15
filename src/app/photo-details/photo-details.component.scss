@@ -1,8 +1,27 @@
+.photo-detail-container {
+  height: 0;
+}
+
 .apod-img {
+  background-color: black;
   width: 100%;
-  height: 100vh;
+  height: calc(100vh - 64px);
   object-fit: cover;
   border: none;
+}
+
+.loading-container {
+  padding: 20px;
+  width: 100%;
+  height: 100vh;
+  background-color: black;
+}
+
+.spinner {
+  position: fixed;
+  top: 50%;
+  right: 50%;
+  margin-right: -45px;
 }
 
 .details-text {
@@ -17,4 +36,11 @@
   bottom: 0px;
   box-shadow: 2px 2px 8px black;
   transition: all 0.5s slide;
+}
+
+.arrow-icon {
+  color: white;
+  cursor: pointer;
+  display: block;
+  margin: 0 auto;
 }

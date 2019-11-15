@@ -1,13 +1,21 @@
 <div class="photo-detail-container" *ngIf="photo; else showNoPhoto">
-  <img class="apod-img" src="{{ photo.url }}" alt="NASA astronomy photo of the day">
-  <div class="details-text">
+  <img class="apod-img" src="{{ photo.hdurl }}" alt="NASA astronomy photo of the day">
+  <div class="details-text" *ngIf="showDetails; else showMinDetails">
+    <mat-icon class="arrow-icon down" (click)="toggleDetails()">keyboard_arrow_down</mat-icon>
     <h2>{{ photo.title }}</h2>
     <h3>{{ photo.date }}</h3>
     <p>{{ photo.explanation }}</p>
   </div>
+  <ng-template #showMinDetails>
+    <div class="details-text">
+      <mat-icon class="arrow-icon up" (click)="toggleDetails()">keyboard_arrow_up</mat-icon>
+    </div>
+  </ng-template>
 </div>
 
 <ng-template #showNoPhoto>
-  <p>...</p>
+  <div class="loading-container">
+    <mat-progress-spinner class="spinner" color="primary" mode="indeterminate"></mat-progress-spinner>
+  </div>
 </ng-template>
 
