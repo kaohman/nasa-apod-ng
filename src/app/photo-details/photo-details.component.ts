@@ -19,7 +19,7 @@ export class PhotoDetailsComponent implements OnInit {
   showDetails: boolean = false;
 
   ngOnInit() {
-    const photoDate = this.route.snapshot.paramMap.get('id');
+    const photoDate: string = this.route.snapshot.paramMap.get('id');
     this.photosService.getPhoto(photoDate)
       .subscribe(photo => this.photo = photo);
     this.isLoading = false;
